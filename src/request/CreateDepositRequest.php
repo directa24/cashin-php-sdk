@@ -23,6 +23,8 @@ class CreateDepositRequest
 
     public $bank_account;
 
+    public $reportedInfo;
+
     public $early_release;
 
     public $fee_on_payer;

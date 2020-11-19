@@ -7,6 +7,7 @@ require_once "../vendor/autoload.php";
 use Directa24\model\Address;
 use Directa24\model\Payer;
 use Directa24\model\BankAccount;
+use Directa24\model\ReportedInfo;
 use Directa24\request\CreateDepositRequest;
 use Directa24\util\Helpers;
 
@@ -35,6 +36,9 @@ $bank_account->account_type = "SAVING";
 $bank_account->beneficiary = "Ricardo Carlos";
 $bank_account->branch = "12";
 
+$reportedInfo = new ReportedInfo();
+$reportedInfo->bank_account_number = '1234-5';
+$reportedInfo->bank_branch = '1234';
 
 $create_deposit_request = new CreateDepositRequest();
 $create_deposit_request->invoice_id = Helpers::generateRandomString(8);
@@ -45,6 +49,7 @@ $create_deposit_request->language = "en";
 $create_deposit_request->payer = $payer;
 $create_deposit_request->payment_method = "BB";
 $create_deposit_request->bank_account = $bank_account;
+$create_deposit_request->reportedInfo = $reportedInfo;
 $create_deposit_request->early_release = false;
 $create_deposit_request->fee_on_payer = false;
 $create_deposit_request->surcharge_on_payer = false;
