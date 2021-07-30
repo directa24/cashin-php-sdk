@@ -347,7 +347,7 @@ class Curl
                 // Append GET params to URL
                 $this->_url .= count($this->_params) > 0 ? '?' . http_build_query($this->_params) : '';
                 // Set options
-                $this->options('CURLOPT_HTTPGET', 1);
+                $this->option('CURLOPT_HTTPGET', 1);
                 break;
 
             case 'POST':
